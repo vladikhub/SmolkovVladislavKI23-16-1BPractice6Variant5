@@ -1,5 +1,6 @@
 
 public class SingleLinkedList<T> {
+
   /*
     Обобщенный класс, являющийся линейным однонаправленным списком
     Операции над списком:
@@ -22,12 +23,14 @@ public class SingleLinkedList<T> {
   }
 
   public static class Node<T> {
+
     /*
     Класс (узел) который хранит информацию и ссылку на следующий узел
      */
     private T data;
     private Node<T> nextNode;
-    public Node(T data){
+
+    public Node(T data) {
       this.data = data;
       nextNode = null;
     }
@@ -35,15 +38,16 @@ public class SingleLinkedList<T> {
 
   /**
    * Метод добавления нового элемента после указателя
+   *
    * @param data
    */
-  public void addNext(T data){
+  public void addNext(T data) {
     Node<T> newNode = new Node<>(data);
-    if (head == null){
+    if (head == null) {
       head = newNode;
       pointer = head;
       System.out.println("Элемент добавлен за указателем");
-    } else{
+    } else {
       newNode.nextNode = pointer.nextNode;
       pointer.nextNode = newNode;
       System.out.println("Элемент добавлен за указателем");
@@ -53,11 +57,11 @@ public class SingleLinkedList<T> {
   /**
    * Метод удаления элемента после указателя
    */
-  public void removeNext(){
-    if (pointer.nextNode == null){
+  public void removeNext() {
+    if (pointer.nextNode == null) {
       if (head == null) {
         System.out.println("Список пуст");
-      } else{
+      } else {
         System.out.println("Указатель установлен в конце списка");
       }
     } else {
@@ -70,12 +74,12 @@ public class SingleLinkedList<T> {
   /**
    * Метод вывода элемента за указателем
    */
-  public void printNext(){
-    if (head == null){
+  public void printNext() {
+    if (head == null) {
       System.out.println("Список пуст");
     } else if (pointer.nextNode == null) {
       System.out.println("null");
-    }else {
+    } else {
       System.out.println(pointer.nextNode.data);
     }
   }
@@ -83,12 +87,12 @@ public class SingleLinkedList<T> {
   /**
    * Метод сдвига указателя на один элемент вправо
    */
-  public void replacePointerRight(){
-    if (head == null){
+  public void replacePointerRight() {
+    if (head == null) {
       System.out.println("Список пуст");
     } else if (pointer.nextNode == null) {
       System.out.println("Указатель находится в конце списка");
-    }else {
+    } else {
       pointer = pointer.nextNode;
       System.out.println("Указатель перемещен вправо");
     }
@@ -97,8 +101,8 @@ public class SingleLinkedList<T> {
   /**
    * Метод замены данных первого элемента и элемента за указателем
    */
-  public void exchangeFirstAndNextData(){
-    if (head == null){
+  public void exchangeFirstAndNextData() {
+    if (head == null) {
       System.out.println("Список пуст");
     } else if (pointer.nextNode == null) {
       System.out.println("Указатель находится в конце списка");
@@ -113,17 +117,17 @@ public class SingleLinkedList<T> {
   /**
    * Метод замены данных последнего элемента и элемента за указателем
    */
-  public void exchangeLastAndNextData(){
-    if (head == null){
+  public void exchangeLastAndNextData() {
+    if (head == null) {
       System.out.println("Список пуст");
     } else if (pointer.nextNode == null) {
       System.out.println("Указатель находится в конце списка");
-    } else{
+    } else {
       Node<T> lastNode = head;
-      while (lastNode.nextNode != null){
+      while (lastNode.nextNode != null) {
         lastNode = lastNode.nextNode;
       }
-      if (pointer.nextNode == lastNode){
+      if (pointer.nextNode == lastNode) {
         System.out.println("Элемент за указателем является последним элементом");
       } else {
         T temp = lastNode.data;
@@ -136,25 +140,25 @@ public class SingleLinkedList<T> {
 
   /**
    * Проверка на пустой список
+   *
    * @return boolean
    */
-  public boolean isEmpty(){
+  public boolean isEmpty() {
     return head == null;
   }
 
   /**
    * Метод вывода всех элементов на экран
    */
-  public void printList(){
-    if (head == null){
+  public void printList() {
+    if (head == null) {
       System.out.println("Список пуст");
-    }
-    else {
+    } else {
       Node<T> currentNode = head;
       while (currentNode != null) {
-        if (currentNode == pointer){
+        if (currentNode == pointer) {
           System.out.print(currentNode.data + " (указатель) -> ");
-        }else {
+        } else {
           System.out.print(currentNode.data + " -> ");
         }
         if (currentNode.nextNode == null) {
@@ -169,13 +173,13 @@ public class SingleLinkedList<T> {
   /**
    * Метод установки указателя на начало списка
    */
-  public void setPointerAtStart(){
-    if (head == null){
+  public void setPointerAtStart() {
+    if (head == null) {
       System.out.println("Список пуст");
     } else {
       pointer = head;
       System.out.println("Указатель установлен вначало");
     }
   }
-  
+
 }

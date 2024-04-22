@@ -6,11 +6,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+
   public static boolean running = true;
   public static String type = null;
   public static Scanner sc = new Scanner(System.in);
   public static SingleLinkedList<String> stringList;
   public static SingleLinkedList<Integer> intList;
+
   public static void main(String[] args) {
     // Выбор типа данных в списке
     String num;
@@ -32,7 +34,7 @@ public class Main {
         type = sc.nextLine();
     }
     // Запуск меню
-    while (running){
+    while (running) {
       System.out.println("""
           ___МЕНЮ___
           1. Проверить, список пуст/нет
@@ -47,17 +49,17 @@ public class Main {
           10. Выход""");
       System.out.println("Выберете пункт: ");
       num = sc.nextLine();
-      if (type.equals("1")){
-        switch (num){
+      if (type.equals("1")) {
+        switch (num) {
           case "10":
             // Завершение работы
             running = false;
             break;
           case "1":
             // проверка на пустой список
-            if (stringList.isEmpty()){
+            if (stringList.isEmpty()) {
               System.out.println("Список пуст");
-            } else{
+            } else {
               System.out.println("Список не пуст");
             }
             break;
@@ -96,17 +98,17 @@ public class Main {
           default:
             System.out.println("Введено неверное число");
         }
-      } else{
-        switch (num){
+      } else {
+        switch (num) {
           case "10":
             // Завершение работы
             running = false;
             break;
           case "1":
             // проверка на пустой список
-            if (intList.isEmpty()){
+            if (intList.isEmpty()) {
               System.out.println("Список пуст");
-            } else{
+            } else {
               System.out.println("Список не пуст");
             }
             break;
@@ -121,7 +123,7 @@ public class Main {
             try {
               el = sc.nextInt();
               intList.addNext(el);
-            } catch (InputMismatchException ex){
+            } catch (InputMismatchException ex) {
               sc.nextLine();
               System.out.println("Нужно ввести число: ");
               el = sc.nextInt();
